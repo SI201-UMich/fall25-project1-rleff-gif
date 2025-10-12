@@ -26,3 +26,33 @@ with open('data/Coffe_sales.csv', mode='r') as file:
         row['Month_name'] = row['Month_name'].strip()
         row['coffee_name'] = row['coffee_name'].strip()
 
+def calculate_coffees_sold_per_type(data):
+    #Counting how many coffees of each type were sold
+    coffee_counts = {}
+    for row in data:
+        coffee = row['coffee_name']
+        if coffee not in coffee_counts:
+            coffee_counts[coffee] = 0
+        coffee_counts[coffee] += 1
+
+def add_season_column(data):
+    # Add a season column to the data based on month name
+    def get_season(month): #adding a season key based on month
+        if month in ['Dec', 'Jan', 'Feb']:
+            return 'Winter'
+        elif month in ['Mar', 'Apr', 'May']:
+            return 'Spring'
+        elif month in ['Jun', 'Jul', 'Aug']:
+            return 'Summer'
+        elif month in ['Sep', 'Oct', 'Nov']:
+            return 'Fall'
+        else:
+            return 'Unknown'
+    
+    # for each sale find its season and adding it as a new column
+    for row in data:
+        month = row['Month_name']
+        row['Season'] = get_season(month)
+    return data
+
+
