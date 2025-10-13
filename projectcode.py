@@ -171,5 +171,42 @@ def write_results_to_txt(coffee_counts, season_order_counts, popular_coffee_data
         
         file.write("\n")
 
+# Time of day results with max highlighted
+        file.write("COFFEES SOLD PER TIME OF DAY:\n")
+        max_time = max(time_count_data, key=time_count_data.get)
+        max_time_count = time_count_data[max_time]
+        for time, count in time_count_data.items():
+            if time == max_time:
+                file.write(f"{time}: {count} coffees sold (PEAK TIME)\n")
+            else:
+                file.write(f"{time}: {count} coffees sold\n")
+        
+        file.write("\n")
+        
+        # Season results with max highlighted
+        file.write("ORDERS PER SEASON:\n")
+        max_season = max(season_order_counts, key=season_order_counts.get)
+        max_season_count = season_order_counts[max_season]
+        for season, order_count in season_order_counts.items():
+            if season == max_season:
+                file.write(f"{season}: {order_count} orders (MOST ORDERS)\n")
+            else:
+                file.write(f"{season}: {order_count} orders\n")
+
+        file.write("\n")
+        
+        # Most popular coffee per season
+        file.write("MOST POPULAR COFFEE PER SEASON:\n")
+        for season, data in popular_coffee_data.items():
+            file.write(f" {season}: {data['coffee']} ({data['count']} orders)\n")
+        file.write("\n")
+        
+        # Final coffee sales analysis
+        file.write("FINAL COFFEE SALES ANALYSIS:\n")
+        file.write(f"Average Coffees Sold Per Day: {daily_coffee_data['average_per_day']:.1f} coffees\n")
+        file.write(f"Total Coffees Sold: {daily_coffee_data['total_coffees']} coffees\n")
+        file.write(f"Total Days: {daily_coffee_data['total_days']} days\n")
+        file.write(f"Total Revenue: ${total_revenue:.2f}\n")
+    
     
 
