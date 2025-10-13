@@ -207,6 +207,20 @@ def write_results_to_txt(coffee_counts, season_order_counts, popular_coffee_data
         file.write(f"Total Coffees Sold: {daily_coffee_data['total_coffees']} coffees\n")
         file.write(f"Total Days: {daily_coffee_data['total_days']} days\n")
         file.write(f"Total Revenue: ${total_revenue:.2f}\n")
+
+if __name__ == "__main__":
+    # Add season column to data
+    data = add_season_column(data)
     
+    # Calculating all results
+    coffee_counts = calculate_coffees_sold_per_type(data)
+    season_order_counts = calculate_orders_per_season(data)
+    popular_coffee_info = get_most_popular_coffee_per_season(data)
+    daily_coffee_info = calculate_average_coffees_sold_per_day(data)
+    time_count_info = calculate_coffees_sold_per_time_of_day(data)
+    total_revenue = calculate_total_revenue(data)
+    
+    # Write results to txt file 
+    write_results_to_txt(coffee_counts, season_order_counts, popular_coffee_info, daily_coffee_info, time_count_info, total_revenue)  
     
 
