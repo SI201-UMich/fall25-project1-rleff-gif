@@ -133,6 +133,43 @@ def calculate_average_coffees_sold_per_day(data):
             'total_days': 0,
             'daily_counts': {}
         }
+def calculate_coffees_sold_per_time_of_day(data):
+    #Count how many coffees were sold per time of day
+    time_counts = {}
+    
+    for row in data:
+        time_period = row['Time_of_Day']
+        
+        if time_period not in time_counts:
+            time_counts[time_period] = 0
+            
+        time_counts[time_period] += 1  
+    
+    return time_counts
+
+def calculate_total_revenue(data):
+    #Calculate the total revenue from all coffee sales
+    total_revenue = 0
+    for row in data:
+        total_revenue += row['money']
+    return total_revenue
+
+def write_results_to_txt(coffee_counts, season_order_counts, popular_coffee_data, daily_coffee_data, time_count_data, total_revenue, filename='coffee_analysis_results.txt'):
+    #Write analysis results to a text file"
+    with open(filename, 'w') as file:
+        file.write("COFFEE SALES ANALYSIS RESULTS\n")
+        
+        # Coffee type results with max highlighted
+        file.write("COFFEES SOLD PER TYPE:\n")
+        max_coffee = max(coffee_counts, key=coffee_counts.get)
+        max_coffee_count = coffee_counts[max_coffee]
+        for coffee, count in coffee_counts.items():
+            if coffee == max_coffee:
+                file.write(f"{coffee}: {count} coffees sold (MOST ORDERED)\n")
+            else:
+                file.write(f"{coffee}: {count} coffees sold\n")
+        
+        file.write("\n")
 
     
 
