@@ -86,7 +86,7 @@ def get_most_popular_coffee_per_season(data):
                 season_coffee_counts[season][coffee] = 0
                 
             season_coffee_counts[season][coffee] += 1
-            
+
  # Find most popular coffee for each season and stores its count
     most_popular_by_season = {}
     for season, coffee_counts in season_coffee_counts.items():
