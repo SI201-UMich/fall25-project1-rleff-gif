@@ -1,0 +1,33 @@
+COFFEE SALES ANALYSIS RESULTS
+COFFEES SOLD PER TYPE:
+Latte: 757 coffees sold
+Hot Chocolate: 276 coffees sold
+Americano: 564 coffees sold
+Americano with Milk: 809 coffees sold (MOST ORDERED)
+Cocoa: 239 coffees sold
+Cortado: 287 coffees sold
+Espresso: 129 coffees sold
+Cappuccino: 486 coffees sold
+
+COFFEES SOLD PER TIME OF DAY:
+Morning: 1181 coffees sold
+Afternoon: 1205 coffees sold (PEAK TIME)
+Night: 1161 coffees sold
+
+ORDERS PER SEASON:
+Spring: 903 orders
+Summer: 732 orders
+Fall: 1029 orders (MOST ORDERS)
+Winter: 883 orders
+
+MOST POPULAR COFFEE PER SEASON:
+ Spring: Americano (207 orders)
+ Summer: Americano with Milk (203 orders)
+ Fall: Latte (282 orders)
+ Winter: Americano with Milk (194 orders)
+
+FINAL COFFEE SALES ANALYSIS:
+Average Coffees Sold Per Day: 9.3 coffees
+Total Coffees Sold: 3547 coffees
+Total Days: 381 days
+Total Revenue: $112245.58
